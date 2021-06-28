@@ -1,4 +1,4 @@
-ms-identity-*
+ms-identity-python-webapp-master/
 models/
 *.db
 *.db-shm
