@@ -1,0 +1,8 @@
+ms-identity-*
+models/
+*.db
+*.db-shm
+*.db-wal
+rasalit
+gecko*
+

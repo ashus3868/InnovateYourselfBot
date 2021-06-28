@@ -1,0 +1,69 @@
+version: "2.0"
+
+stories:
+
+- story: Blog path
+  steps:
+  - intent: greet
+  - action: action_authenticate
+  - intent: BLOGS
+    entities:
+      - content_type: "BLOGS"
+  - slot_was_set:
+      - content_type: "BLOGS"
+  - action: utter_services
+
+- story: video content path
+  steps:
+  - intent: greet
+  - action: action_authenticate
+  - intent: VIDEO_CONTENT
+    entities:
+      - content_type: "VIDEO"
+  - slot_was_set:
+      - content_type: "VIDEO"
+  - action: utter_services
+
+- story: rasa chatbot
+  steps:
+    - intent: RASA_CHATBOT
+      entities:
+        - technology: "RASA"
+    - slot_was_set:
+        - technology: "RASA"
+    - action: action_show_content
+
+- story: rasa chatbot
+  steps:
+    - intent: PYTHON_PROGRAMMING
+      entities:
+        - technology: "PYTHON"
+    - slot_was_set:
+        - technology: "PYTHON"
+    - action: action_show_content
+
+- story: rasa chatbot
+  steps:
+    - intent: INTERNET_OF_THINGS
+      entities:
+        - technology: "IOT"
+    - slot_was_set:
+        - technology: "IOT"
+    - action: action_show_content
+
+- story: rasa chatbot
+  steps:
+    - intent: deny
+    - action: utter_goodbye
+
+- story: rasa chatbot
+  steps:
+    - intent: affirm
+    - action: utter_content
+
+- story: restart
+  steps:
+    - intent: restart
+    - action: action_restart
+
+

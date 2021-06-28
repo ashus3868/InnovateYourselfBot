@@ -1,0 +1,78 @@
+version: '2.0'
+config:
+  store_entities_as_slots: true
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- greet:
+    use_entities: true
+- goodbye:
+    use_entities: true
+- affirm:
+    use_entities: true
+- deny:
+    use_entities: true
+- mood_great:
+    use_entities: true
+- mood_unhappy:
+    use_entities: true
+- bot_challenge:
+    use_entities: true
+- BLOGS:
+    use_entities: true
+- VIDEO_CONTENT:
+    use_entities: true
+- RASA_CHATBOT:
+    use_entities: true
+- PYTHON_PROGRAMMING:
+    use_entities: true
+- INTERNET_OF_THINGS:
+    use_entities: true
+- restart:
+    use_entities: true
+entities:
+- content_type
+- technology
+slots:
+  content_type:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+  technology:
+    type: rasa.shared.core.slots.TextSlot
+    initial_value: null
+    auto_fill: true
+    influence_conversation: true
+responses:
+  utter_greet:
+  - text: Hey there! Welcome to Innovate Yourself. I am Innovate. Please Authenticate yourself first to start the conversation?
+  utter_content:
+  - buttons:
+    - payload: /BLOGS{"content_type":"BLOGS"}
+      title: DOCUMENTATION 📖
+    - payload: /VIDEO_CONTENT{"content_type":"VIDEO"}
+      title: VIDEO CONTENT 🎥
+    text: What are you looking for?
+  utter_services:
+  - buttons:
+    - payload: /RASA_CHATBOT{"technology":"RASA"}
+      title: RASA CHATBOT 🤖
+    - payload: /PYTHON_PROGRAMMING{"technology":"PYTHON"}
+      title: PYTHON PROGRAMMING 🐍
+    - payload: /INTERNET_OF_THINGS{"technology":"IOT"}
+      title: INTERNET OF THINGS 💻
+    text: Which technology would you like to learn?
+  utter_check:
+  - text: Ok, let me check...
+  utter_goodbye:
+  - text: Good Bye
+  utter_iamabot:
+  - text: I am a bot, powered by Rasa.
+actions:
+- action_show_content
+- action_restart
+- action_authenticate
+forms: {}
+e2e_actions: []

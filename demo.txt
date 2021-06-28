@@ -1,0 +1,6 @@
+Hey there! Welcome to Innovate Yourself. I am Innovate. How may I assist you?
+What are you looking for?
+Which technology would you like to learn?
+Ok, let me check...
+Good Bye
+I am a bot, powered by Rasa.
